@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Task 02</title>
+    <style>
+        h1 {
+            color: brown;
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            font-size: 16px;
+            justify-content: center;
+            height: 40%;
+            width: 40%;
+        }
+        .menu-card {
+            background-color: lightblue;
+        }
+        .card img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><em>Coffee Shop</em></h1>
+        <hr>
+    </header>
+    <main class="container">
+        <article class="card menu-card">
+            <ol type="I">
+                <li>Coffee
+                    <ul type="disc">
+                        <li><em>Cappuccinos</em>
+                            <ul type="circle">
+                                <li>With Foam?</li>
+                                <li>More Sugar?</li>
+                            </ul>
+                        </li>
+                        <li><em>Espresso</em>
+                            <ol type="I" start="4">
+                                <li>Robusta</li>
+                                <li>Arabica</li>
+                                <li>Bourbon</li>
+                            </ol>
+                        </li>
+                        <li><em>Americanos</em></li>
+                    </ul>
+                </li>
+                <li>Cakes
+                    <ul type="disc">
+                        <li><em>Chocolate</em></li>
+                        <li><em>Vanilla</em></li>
+                        <li><em>Red Velvet</em></li>
+                    </ul>
+                </li>
+                <li>Fruit Salad
+                    <ul type="disc">
+                        <li><em>Apple</em></li>
+                        <li><em>Watermelon</em></li>
+                        <li><em>Strawberry</em></li>
+                    </ul>
+                </li>
+            </ol>
+        </article>
+        <figure class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO9TfIFqT5Np6d9CSiJB0QdXnOGE2NPaOXGQ&s" alt="Coffee Shop Interior">
+        </figure>   
+    </main>
+</body>
+</html>
