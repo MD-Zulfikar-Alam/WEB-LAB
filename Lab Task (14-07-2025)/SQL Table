@@ -1,0 +1,24 @@
+-- Database: diu_coffee_shop
+
+CREATE DATABASE IF NOT EXISTS diu_coffee_shop;
+USE diu_coffee_shop;
+
+-- Users Table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    birth DATE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    serial VARCHAR(20) UNIQUE
+);
+
+-- Orders Table
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    coffee VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    order_time DATETIME NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
