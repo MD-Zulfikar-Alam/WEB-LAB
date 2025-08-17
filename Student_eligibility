@@ -1,0 +1,36 @@
+// Student list
+var students = [
+  {
+    name: "Rahim",
+    roll: "221-15-1234",
+    scores: {
+      Bangla: 75,
+      English: 80,
+      CSE115: 70,
+      MAT101: 85
+    },
+    attendance: true
+  },
+  {
+    name: "Karim",
+    roll: "221-15-5678",
+    scores: {
+      Bangla: 65,
+      English: 60,
+      CSE115: 55,
+      MAT101: 70
+    },
+    attendance: false
+  },
+  {
+    name: "Amina",
+    roll: "221-15-9101",
+    scores: {
+      Bangla: 88,
+      English: 90,
+      CSE115: 95,
+      MAT101: 92
+    },
+    attendance: true
+  }
+];
