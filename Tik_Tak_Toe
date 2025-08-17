@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Tic Tac Toe</title>
+</head>
+<body>
+
+<h2>Tic Tac Toe</h2>
+
+<table border="1" cellpadding="20">
+  <tr>
+    <td onclick="play(0)"></td>
+    <td onclick="play(1)"></td>
+    <td onclick="play(2)"></td>
+  </tr>
+  <tr>
+    <td onclick="play(3)"></td>
+    <td onclick="play(4)"></td>
+    <td onclick="play(5)"></td>
+  </tr>
+  <tr>
+    <td onclick="play(6)"></td>
+    <td onclick="play(7)"></td>
+    <td onclick="play(8)"></td>
+  </tr>
+</table>
+
+<p id="result">Player X's turn</p>
+
+<script>
+  var cells = document.getElementsByTagName("td");
+  var board = ["", "", "", "", "", "", "", "", ""];
+  var current = "X";
+  var gameOver = false;
+
+  function play(i) {
+    if (board[i] === "" && !gameOver) {
+      board[i] = current;
+      cells[i].innerHTML = current;
+      if (checkWin()) {
+        document.getElementById("result").innerHTML = "Player " + current + " wins!";
+        gameOver = true;
+      } else if (board.every(cell => cell !== "")) {
+        document.getElementById("result").innerHTML = "It's a draw!";
+        gameOver = true;
+      } else {
+        current = (current === "X") ? "O" : "X";
+        document.getElementById("result").innerHTML = "Player " + current + "'s turn";
+      }
+    }
+  }
+
+  function checkWin() {
+    var win = [
+      [0,1,2], [3,4,5], [6,7,8],
+      [0,3,6], [1,4,7], [2,5,8],
+      [0,4,8], [2,4,6]
+    ];
+    return win.some(p => board[p[0]] === current && board[p[1]] === current && board[p[2]] === current);
+  }
+</script>
+
+</body>
+</html>
