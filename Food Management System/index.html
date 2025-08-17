@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Food Management System</h1>
+    <button class="cart" onclick="toggleCart()">
+      <span class="cart-icon-wrapper">
+        🛒
+        <span id="cart-count" class="cart-count-badge">0</span>
+      </span>
+      Cart
+    </button>
+  </header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <h2>🔥 Special Offer: Get 20% OFF on All Orders Today!</h2>
+  </section>
+
+  <!-- Products -->
+  <section class="products">
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Apple">
+      <h3>Apple</h3>
+      <p class="price"><s>100</s> <strong>80 BDT</strong></p>
+      <button onclick="addToCart('Apple', 100, 80)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Bananas.jpg" alt="Banana">
+      <h3>Banana</h3>
+      <p class="price"><s>50</s> <strong>40 BDT</strong></p>
+      <button onclick="addToCart('Banana', 50, 40)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Culinary_fruits_front_view.jpg" alt="Mixed Fruits">
+      <h3>Mixed Fruits</h3>
+      <p class="price"><s>200</s> <strong>160 BDT</strong></p>
+      <button onclick="addToCart('Mixed Fruits', 200, 160)">Add to Cart</button>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="cart-modal">
+    <div class="cart-modal-content">
+      <span class="close" onclick="toggleCart()">&times;</span>
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="total-price">Total: 0 BDT</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
