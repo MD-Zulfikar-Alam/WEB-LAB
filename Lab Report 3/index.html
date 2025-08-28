@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Form Validation</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0; height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    font-family:Arial, sans-serif; background:#f5f6f7;
+  }
+  .card{
+    width:320px; padding:18px; background:#fff;
+    border:1px solid #e0e0e0; border-radius:8px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  }
+  h2{margin:0 0 12px; font-size:20px; text-align:center}
+  input{
+    width:100%; padding:10px; margin:6px 0;
+    border:1px solid #cfcfcf; border-radius:4px; font-size:14px;
+  }
+  input:focus{outline:none; border-color:#4caf50; box-shadow:0 0 0 4px rgba(76,175,80,0.07)}
+  .error{color:#d32f2f; font-size:13px; min-height:18px; margin-bottom:4px}
+  button{
+    width:100%; padding:10px; margin-top:8px;
+    background:#4caf50; color:#fff; border:none; border-radius:4px; cursor:pointer;
+  }
+  button:hover{background:#43a047}
+  .msg{font-size:13px; text-align:center; margin-top:8px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Form Validation</h2>
+    <form id="form">
+      <input id="name" placeholder="Name" autocomplete="off">
+      <div class="error" id="errName"></div>
+
+      <input id="email" placeholder="Email">
+      <div class="error" id="errEmail"></div>
+
+      <input id="pass" type="password" placeholder="Password">
+      <div class="error" id="errPass"></div>
+
+      <button type="submit">Submit</button>
+      <div class="msg" id="msg"></div>
+    </form>
+  </div>
+
+<script>
+const form = document.getElementById('form');
+const nameI = document.getElementById('name');
+const emailI = document.getElementById('email');
+const passI = document.getElementById('pass');
+const errName = document.getElementById('errName');
+const errEmail = document.getElementById('errEmail');
+const errPass = document.getElementById('errPass');
+const msg = document.getElementById('msg');
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  errName.textContent = errEmail.textContent = errPass.textContent = msg.textContent = '';
+
+  let valid = true;
+  if (!nameI.value.trim()) { errName.textContent = 'Name required'; valid = false; }
+  if (!emailRe.test(emailI.value.trim())) { errEmail.textContent = 'Valid email required'; valid = false; }
+  if (passI.value.length < 6) { errPass.textContent = 'At least 6 characters'; valid = false; }
+
+  if (valid) {
+    msg.style.color = '#2e7d32';
+    msg.textContent = 'Form submitted successfully!';
+    form.reset();
+  }
+});
+</script>
+</body>
+</html>
